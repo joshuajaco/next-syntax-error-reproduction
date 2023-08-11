@@ -2,13 +2,17 @@
   "name": "next-syntax-error",
   "version": "0.1.0",
   "private": true,
+  "workspaces": [
+    "external-package"
+  ],
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "npm run build -w=external-package && next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "external-package": "file:./external-package",
     "@types/node": "20.4.9",
     "@types/react": "18.2.20",
     "@types/react-dom": "18.2.7",
@@ -16,5 +20,8 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "typescript": "5.1.6"
+  },
+  "devDependencies": {
+    "prettier": "^3.0.1"
   }
 }

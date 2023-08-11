@@ -1,0 +1,18 @@
+{
+  "name": "external-package",
+  "version": "0.1.0",
+  "exports": {
+    "./foo": {
+      "import": "./dist/esm/foo.js",
+      "require": "./dist/cjs/foo.js"
+    }
+  },
+  "scripts": {
+    "build": "npm run build:cjs && npm run build:esm",
+    "build:cjs": "tsc --module CommonJS --outDir ./dist/cjs",
+    "build:esm": "tsc --module ES2020 --outDir ./dist/esm"
+  },
+  "devDependencies": {
+    "typescript": "^5.1.6"
+  }
+}
